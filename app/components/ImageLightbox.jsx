@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
+import { createPortal } from 'react-dom';
 import Image from 'next/image';
 
 export default function ImageLightbox({
@@ -14,6 +15,8 @@ export default function ImageLightbox({
   natural = false,
 }) {
   const [open, setOpen] = useState(null);
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
 
   const close = useCallback(() => setOpen(null), []);
 
@@ -76,7 +79,7 @@ export default function ImageLightbox({
         )}
       </div>
 
-      {open !== null && (
+      {mounted && open !== null && createPortal(
         <div
           className="fixed inset-0 z-50 bg-black/92 backdrop-blur-sm flex flex-col"
           onClick={close}
@@ -136,7 +139,8 @@ export default function ImageLightbox({
               ›
             </button>
           )}
-        </div>
+        </div>,
+        document.body
       )}
     </>
   );
