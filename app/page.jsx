@@ -224,12 +224,27 @@ export default function Page() {
             For Luck | For Laughs | For The Unknown
           </h2>
 
-          <a
-            href="mailto:office@delete-tv.com"
-            className="inline-block px-8 py-4 rounded-2xl border border-cyan-300 bg-cyan-400/10 text-cyan-50 uppercase tracking-[0.35em] text-sm shadow-[0_0_30px_rgba(34,211,238,0.28)] hover:scale-[1.02] hover:bg-cyan-300/15 transition"
-          >
-            &gt; Contact &lt;
-          </a>
+          <div className="flex flex-wrap justify-center gap-4">
+            <a
+              href="mailto:office@delete-tv.com"
+              className="inline-block px-8 py-4 rounded-2xl border border-cyan-300 bg-cyan-400/10 text-cyan-50 uppercase tracking-[0.35em] text-sm shadow-[0_0_30px_rgba(34,211,238,0.28)] hover:scale-[1.02] hover:bg-cyan-300/15 transition"
+            >
+              &gt; Contact &lt;
+            </a>
+            <a
+              href="https://www.instagram.com/delete_tv/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="DELETE TV on Instagram"
+              className="inline-flex items-center justify-center w-[54px] h-[54px] rounded-2xl border border-cyan-500/40 text-cyan-300 hover:border-cyan-300 hover:text-cyan-100 hover:scale-[1.02] transition"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <circle cx="12" cy="12" r="4"/>
+                <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+              </svg>
+            </a>
+          </div>
         </section>
 
         <footer className="py-8 text-center text-xs uppercase tracking-[0.35em] text-cyan-500/60">
