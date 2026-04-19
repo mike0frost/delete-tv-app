@@ -78,40 +78,55 @@ export default function ImageLightbox({
 
       {open !== null && (
         <div
-          className="fixed inset-0 z-50 bg-black/92 backdrop-blur-sm flex items-center justify-center"
+          className="fixed inset-0 z-50 bg-black/92 backdrop-blur-sm flex flex-col"
           onClick={close}
         >
-          <button
-            onClick={close}
-            className="absolute top-4 right-5 text-cyan-400 text-xs tracking-[0.3em] uppercase hover:text-cyan-100 transition-colors z-10"
-          >
-            ✕ Close
-          </button>
-
-          <span className="absolute top-4 left-5 text-cyan-500 text-xs tracking-[0.3em] uppercase">
-            {open + 1} / {images.length}
-          </span>
-
-          {images.length > 1 && (
+          {/* Top bar */}
+          <div className="flex items-center justify-between px-5 py-4 shrink-0">
+            <span className="text-cyan-500 text-xs tracking-[0.3em] uppercase">
+              {open + 1} / {images.length}
+            </span>
             <button
-              onClick={(e) => { e.stopPropagation(); prev(); }}
-              className="absolute left-4 text-cyan-400 text-2xl hover:text-cyan-100 transition-colors z-10 px-3 py-6"
+              onClick={close}
+              className="text-cyan-400 text-xs tracking-[0.3em] uppercase hover:text-cyan-100 transition-colors"
             >
-              ‹
+              ✕ Close
             </button>
-          )}
+          </div>
 
+          {/* Image area */}
           <div
-            className="max-w-5xl max-h-[88vh] w-full px-16 flex items-center justify-center"
+            className="flex-1 flex items-center justify-center relative overflow-hidden px-14"
             onClick={(e) => e.stopPropagation()}
           >
+            {images.length > 1 && (
+              <button
+                onClick={(e) => { e.stopPropagation(); prev(); }}
+                className="absolute left-2 text-cyan-400 text-3xl hover:text-cyan-100 transition-colors z-10 px-3 py-6"
+              >
+                ‹
+              </button>
+            )}
+
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={images[open]}
               alt={`${altPrefix} ${open + 1}`}
-              className="max-w-full max-h-[88vh] object-contain rounded-2xl shadow-[0_0_60px_rgba(34,211,238,0.15)] ring-1 ring-cyan-500/30"
+              className="max-w-full max-h-full object-contain rounded-2xl shadow-[0_0_60px_rgba(34,211,238,0.15)] ring-1 ring-cyan-500/30"
             />
+
+            {images.length > 1 && (
+              <button
+                onClick={(e) => { e.stopPropagation(); next(); }}
+                className="absolute right-2 text-cyan-400 text-3xl hover:text-cyan-100 transition-colors z-10 px-3 py-6"
+              >
+                ›
+              </button>
+            )}
           </div>
+
+          {/* Bottom padding */}
+          <div className="shrink-0 h-4" />
 
           {images.length > 1 && (
             <button
