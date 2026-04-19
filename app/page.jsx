@@ -1,77 +1,45 @@
-'use client';
+import Image from 'next/image';
+import Link from 'next/link';
+import { seasons } from './data/seasons';
+import ImageLightbox from './components/ImageLightbox';
 
-export default function BlueNeonPortalLandingPage() {
-  const seasons = [
-    {
-      code: '[S 11]',
-      title: 'Season 11 Collection 2025',
-      desc: 'Latest DELETE TV broadcast collection.',
-    },
-    {
-      code: '[S 10]',
-      title: 'Season 10 Collection 2024',
-      desc: 'Archive broadcast season.',
-    },
-    {
-      code: '[S 09]',
-      title: 'Season 9 Collection 2023',
-      desc: 'Curated moving-image selection.',
-    },
-    {
-      code: '[S 08]',
-      title: 'Season 8 Collection 2022',
-      desc: 'Experimental film and video archive.',
-    },
-    {
-      code: '[S 07]',
-      title: 'Season 7 Collection 2021',
-      desc: 'Expanded seasonal broadcast catalog.',
-    },
-    {
-      code: '[S 06]',
-      title: 'Season 6 Collection 2020',
-      desc: 'Programmed visual art season.',
-    },
-    {
-      code: '[S 05]',
-      title: 'Season 5 Collection 2019',
-      desc: 'Broadcast archive entry.',
-    },
-    {
-      code: '[S 04]',
-      title: 'Season 4 Collection 2018',
-      desc: 'Seasonal selection from the archive.',
-    },
-    {
-      code: '[S 03]',
-      title: 'Season 3 Collection 2017',
-      desc: 'Historic DELETE TV season.',
-    },
-    {
-      code: '[S 02]',
-      title: 'Season 2 Collection 2016',
-      desc: 'Early archive collection.',
-    },
-    {
-      code: '[S 01]',
-      title: 'Season 1 Collection 2015',
-      desc: 'The first available season.',
-    },
-  ];
+const BASE = 'https://static.wixstatic.com/media/';
 
-  const stats = [
-    ['PLATFORM', 'DELETE TV'],
-    ['FORMAT', 'VIDEO ART'],
-    ['SEASONS', '2015_2025'],
-    ['STATUS', 'SUBMISSIONS CLOSED'],
-  ];
+const newsImages = [
+  BASE + '4fafd8_76a8afdb11ec42629dc885e135107786~mv2.png',
+  BASE + '4fafd8_394305b7e88742a29ae5fbccfa02571b~mv2.png',
+  BASE + '4fafd8_d598898949ad48eb85daacedf09894d8~mv2.png',
+  BASE + '4fafd8_f804ff3dfe7b49739c7782a002fa9b75~mv2.jpg',
+  BASE + '4fafd8_2c9f25af6a3841d094ae49f2e4430b8e~mv2.png',
+  BASE + '4fafd8_1c30066d8a664b7b9e1ae50be8ecbffb~mv2.jpg',
+  BASE + '4fafd8_cbfc196bf29f4855a4473ea6c9a39650~mv2.png',
+  BASE + '4fafd8_84eafc60cc324264a3f9385e05a68e8e~mv2.png',
+  BASE + '4fafd8_628df7a27e48422688d0ebdb0c5e34ef~mv2.png',
+];
 
+const stats = [
+  ['PLATFORM', 'DELETE TV'],
+  ['FORMAT', 'VIDEO ART'],
+  ['SEASONS', '2015_2025'],
+  ['STATUS', 'SUBMISSIONS CLOSED'],
+];
+
+const navLinks = [
+  { label: 'NEWS', href: '#news' },
+  { label: 'BROADCAST', href: '#broadcast' },
+  { label: 'SUBMIT', href: 'https://filmfreeway.com/DeleteTV' },
+  { label: 'CONTACT', href: '#contact' },
+];
+
+export default function Page() {
   return (
     <div className="min-h-screen bg-[#030814] text-cyan-100 overflow-x-hidden relative font-mono">
       <div className="absolute inset-0 opacity-20 pointer-events-none [background-image:linear-gradient(rgba(0,180,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(0,180,255,0.08)_1px,transparent_1px)] [background-size:42px_42px]" />
       <div className="absolute inset-0 pointer-events-none opacity-30 [background:linear-gradient(to_bottom,transparent_0%,rgba(0,255,255,0.03)_50%,transparent_100%)]" />
 
       <main className="relative z-10 max-w-6xl mx-auto px-6 md:px-10 py-8 md:py-12">
+
+        {/* Hero */}
         <section className="border border-cyan-500/30 bg-black/30 backdrop-blur-md rounded-3xl shadow-[0_0_40px_rgba(0,180,255,0.18)] p-6 md:p-10">
           <div className="flex flex-col lg:flex-row gap-10">
             <div className="flex-1 space-y-6">
@@ -94,29 +62,36 @@ export default function BlueNeonPortalLandingPage() {
                 </p>
               </div>
 
-              <div className="pt-2">
+              <nav className="pt-2">
                 <p className="text-cyan-500 text-xs tracking-[0.4em] uppercase mb-3">Channel_Index</p>
                 <div className="space-y-2 text-sm md:text-base text-cyan-100/80">
-                  <p>NEWS</p>
-                  <p>BROADCAST</p>
-                  <p>SUBMIT</p>
-                  <p>CONTACT</p>
+                  {navLinks.map(({ label, href }) => (
+                    <div key={label}>
+                      <Link
+                        href={href}
+                        className="hover:text-cyan-300 transition-colors"
+                        {...(href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                      >
+                        {label}
+                      </Link>
+                    </div>
+                  ))}
                 </div>
-              </div>
+              </nav>
 
               <div className="flex flex-wrap gap-4 pt-4">
-                <a
+                <Link
                   href="#broadcast"
                   className="px-6 py-3 rounded-2xl border border-cyan-300 bg-cyan-400/10 text-cyan-100 uppercase tracking-[0.25em] text-sm shadow-[0_0_30px_rgba(34,211,238,0.3)] hover:bg-cyan-300/15 transition"
                 >
                   &gt; View Broadcast Archive &lt;
-                </a>
-                <a
+                </Link>
+                <Link
                   href="#contact"
                   className="px-6 py-3 rounded-2xl border border-cyan-800/80 text-cyan-300 uppercase tracking-[0.25em] text-sm hover:border-cyan-400 hover:text-cyan-100 transition"
                 >
                   Contact Channel
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -141,7 +116,7 @@ export default function BlueNeonPortalLandingPage() {
 
                 <div className="rounded-2xl border border-cyan-500/20 bg-black/30 p-4">
                   <p className="text-[10px] uppercase tracking-[0.3em] text-cyan-500 mb-3">Tagline</p>
-                  <p className="text-xs leading-6 text-cyan-200/80 break-all">
+                  <p className="text-xs leading-6 text-cyan-200/80">
                     FOR LUCK | FOR LAUGHS | FOR THE UNKNOWN
                   </p>
                 </div>
@@ -150,6 +125,7 @@ export default function BlueNeonPortalLandingPage() {
           </div>
         </section>
 
+        {/* About / Status */}
         <section className="grid lg:grid-cols-[1.2fr_0.8fr] gap-8 mt-10">
           <div className="rounded-3xl border border-cyan-500/25 bg-black/25 backdrop-blur-sm p-6 md:p-8 shadow-[0_0_40px_rgba(0,174,255,0.12)]">
             <p className="text-cyan-500 text-xs tracking-[0.35em] uppercase mb-4">About The Channel</p>
@@ -171,6 +147,19 @@ export default function BlueNeonPortalLandingPage() {
           </div>
         </section>
 
+        {/* News image grid */}
+        <section id="news" className="mt-10 rounded-3xl border border-cyan-500/25 bg-black/25 backdrop-blur-sm p-6 md:p-8">
+          <p className="text-cyan-500 text-xs tracking-[0.35em] uppercase mb-2">// News_Feed</p>
+          <h2 className="text-3xl md:text-5xl text-cyan-100 uppercase tracking-wide mb-8">News</h2>
+          <ImageLightbox
+            images={newsImages}
+            altPrefix="News image"
+            gridClassName="grid-cols-3"
+            natural={true}
+          />
+        </section>
+
+        {/* Season Archive */}
         <section
           id="broadcast"
           className="mt-10 rounded-3xl border border-cyan-500/25 bg-black/25 backdrop-blur-sm p-6 md:p-8"
@@ -186,20 +175,37 @@ export default function BlueNeonPortalLandingPage() {
           </div>
 
           <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-5">
-            {seasons.map((item, i) => (
-              <div
-                key={item.code}
-                className="group rounded-3xl border border-cyan-500/20 bg-[#06111f]/60 p-5 shadow-[inset_0_0_20px_rgba(0,180,255,0.05)] hover:border-cyan-300/60 hover:shadow-[0_0_25px_rgba(34,211,238,0.15)] transition"
+            {seasons.map((season, i) => (
+              <Link
+                key={season.slug}
+                href={`/broadcast/${season.slug}`}
+                className="group rounded-3xl border border-cyan-500/20 bg-[#06111f]/60 overflow-hidden shadow-[inset_0_0_20px_rgba(0,180,255,0.05)] hover:border-cyan-300/60 hover:shadow-[0_0_25px_rgba(34,211,238,0.15)] transition"
               >
-                <div className="flex items-center justify-between mb-5">
-                  <span className="text-cyan-400 tracking-[0.3em] text-xs uppercase">{item.code}</span>
-                  <span className="text-cyan-700 group-hover:text-cyan-300 transition">
-                    {String(i + 1).padStart(2, '0')}
-                  </span>
+                {season.cover ? (
+                  <div className="relative h-44 w-full overflow-hidden">
+                    <Image
+                      src={season.cover}
+                      alt={season.fullTitle}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#06111f] via-transparent to-transparent" />
+                  </div>
+                ) : (
+                  <div className="h-44 w-full bg-gradient-to-br from-cyan-900/30 to-blue-900/20 flex items-center justify-center border-b border-cyan-500/10">
+                    <span className="text-cyan-500/40 text-4xl font-bold tracking-widest">{season.code}</span>
+                  </div>
+                )}
+                <div className="p-5">
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-cyan-400 tracking-[0.3em] text-xs uppercase">{season.code}</span>
+                    <span className="text-cyan-700 group-hover:text-cyan-300 transition text-xs">{season.date}</span>
+                  </div>
+                  <h3 className="text-cyan-100 text-lg mb-2 leading-snug">{season.fullTitle}</h3>
+                  <p className="text-cyan-200/70 leading-relaxed text-sm">{season.desc}</p>
                 </div>
-                <h3 className="text-cyan-100 text-xl mb-3 leading-snug">{item.title}</h3>
-                <p className="text-cyan-200/70 leading-relaxed text-sm">{item.desc}</p>
-              </div>
+              </Link>
             ))}
           </div>
 
@@ -208,18 +214,22 @@ export default function BlueNeonPortalLandingPage() {
           </p>
         </section>
 
+        {/* Contact */}
         <section
           id="contact"
           className="mt-10 rounded-3xl border border-cyan-400/30 bg-gradient-to-b from-cyan-500/10 to-transparent p-8 md:p-12 text-center shadow-[0_0_50px_rgba(0,174,255,0.12)]"
         >
           <p className="text-cyan-500 text-xs tracking-[0.35em] uppercase mb-3">Contact</p>
-          <h2 className="text-3xl md:text-6xl uppercase text-cyan-100 mb-6 drop-shadow-[0_0_22px_rgba(34,211,238,0.35)]">
+          <h2 className="text-3xl md:text-5xl uppercase text-cyan-100 mb-8 drop-shadow-[0_0_22px_rgba(34,211,238,0.35)]">
             For Luck | For Laughs | For The Unknown
           </h2>
 
-          <button className="px-8 py-4 rounded-2xl border border-cyan-300 bg-cyan-400/10 text-cyan-50 uppercase tracking-[0.35em] text-sm shadow-[0_0_30px_rgba(34,211,238,0.28)] hover:scale-[1.02] hover:bg-cyan-300/15 transition">
-            &gt; Open Contact Channel &lt;
-          </button>
+          <a
+            href="mailto:office@delete-tv.com"
+            className="inline-block px-8 py-4 rounded-2xl border border-cyan-300 bg-cyan-400/10 text-cyan-50 uppercase tracking-[0.35em] text-sm shadow-[0_0_30px_rgba(34,211,238,0.28)] hover:scale-[1.02] hover:bg-cyan-300/15 transition"
+          >
+            &gt; Contact &lt;
+          </a>
         </section>
 
         <footer className="py-8 text-center text-xs uppercase tracking-[0.35em] text-cyan-500/60">
