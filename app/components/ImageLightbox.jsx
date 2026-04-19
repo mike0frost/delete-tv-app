@@ -96,7 +96,7 @@ export default function ImageLightbox({
 
           {/* Image area */}
           <div
-            className="flex-1 flex items-center justify-center relative overflow-hidden px-14"
+            className="flex-1 min-h-0 flex items-center justify-center relative overflow-hidden px-14"
             onClick={(e) => e.stopPropagation()}
           >
             {images.length > 1 && (
