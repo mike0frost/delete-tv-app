@@ -20,7 +20,7 @@ const newsImages = [
 const stats = [
   ['PLATFORM', 'DELETE TV'],
   ['FORMAT', 'VIDEO ART'],
-  ['SEASONS', '2015_2025'],
+  ['SEASONS', '2015_2026'],
   ['STATUS', 'SUBMISSIONS CLOSED'],
 ];
 
@@ -133,7 +133,7 @@ export default function Page() {
               <p>&gt; DELETE TV presents a broadcast-oriented archive for video art.</p>
               <p>&gt; The platform is structured around seasons.</p>
               <p>&gt; Current public navigation includes News, Broadcast, Submit, and Contact.</p>
-              <p>&gt; The broadcast archive spans from Season 1 in 2015 to Season 11 in 2025.</p>
+              <p>&gt; The broadcast archive spans from Season 1 in 2015 to Season 12 in 2026.</p>
             </div>
           </div>
 
@@ -170,7 +170,7 @@ export default function Page() {
               <h2 className="text-3xl md:text-5xl text-cyan-100 uppercase tracking-wide">Season Archive</h2>
             </div>
             <p className="text-cyan-200/70 max-w-xl leading-relaxed">
-              &gt; Eleven seasons currently listed in the public broadcast archive.
+              &gt; Twelve seasons currently listed in the public broadcast archive.
             </p>
           </div>
 
@@ -210,7 +210,7 @@ export default function Page() {
           </div>
 
           <p className="mt-6 text-cyan-500/70 text-sm tracking-wide">
-            // Archive years currently visible: 2015 → 2025
+            // Archive years currently visible: 2015 → 2026
           </p>
         </section>
 

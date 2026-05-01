@@ -2,6 +2,20 @@ const BASE = 'https://static.wixstatic.com/media/';
 
 export const seasons = [
   {
+    number: 12,
+    code: '[S 12]',
+    slug: 'season-12',
+    title: 'Season 12',
+    fullTitle: 'Season 12 Collection 2026',
+    desc: 'Energy & Alchemy',
+    date: '2026',
+    cover: '/news_may_2026.png',
+    wixUrl: '',
+    images: [
+      '/news_may_2026.png',
+    ],
+  },
+  {
     number: 11,
     code: '[S 11]',
     slug: 'season-11',
