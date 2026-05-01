@@ -6,6 +6,7 @@ import ImageLightbox from './components/ImageLightbox';
 const BASE = 'https://static.wixstatic.com/media/';
 
 const newsImages = [
+  '/news_may_2026.png',
   BASE + '4fafd8_76a8afdb11ec42629dc885e135107786~mv2.png',
   BASE + '4fafd8_394305b7e88742a29ae5fbccfa02571b~mv2.png',
   BASE + '4fafd8_d598898949ad48eb85daacedf09894d8~mv2.png',
