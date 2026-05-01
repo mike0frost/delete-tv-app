@@ -15,7 +15,6 @@ const newsImages = [
   BASE + '4fafd8_1c30066d8a664b7b9e1ae50be8ecbffb~mv2.jpg',
   BASE + '4fafd8_cbfc196bf29f4855a4473ea6c9a39650~mv2.png',
   BASE + '4fafd8_84eafc60cc324264a3f9385e05a68e8e~mv2.png',
-  BASE + '4fafd8_628df7a27e48422688d0ebdb0c5e34ef~mv2.png',
 ];
 
 const stats = [
