@@ -12,7 +12,6 @@ export const seasons = [
     cover: '/June_2026_archive.png',
     wixUrl: '',
     images: [
-      '/June_2026_archive.png',
       '/news_may_2026.png',
     ],
   },
