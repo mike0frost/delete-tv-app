@@ -9,9 +9,10 @@ export const seasons = [
     fullTitle: 'Season 12 Collection 2026',
     desc: 'Energy & Alchemy',
     date: '2026',
-    cover: '/news_may_2026.png',
+    cover: '/June_2026_archive.png',
     wixUrl: '',
     images: [
+      '/June_2026_archive.png',
       '/news_may_2026.png',
     ],
   },

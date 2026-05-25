@@ -6,6 +6,7 @@ import ImageLightbox from './components/ImageLightbox';
 const BASE = 'https://static.wixstatic.com/media/';
 
 const newsImages = [
+  '/June_2026_news.png',
   '/news_may_2026_square.png',
   BASE + '4fafd8_76a8afdb11ec42629dc885e135107786~mv2.png',
   BASE + '4fafd8_394305b7e88742a29ae5fbccfa02571b~mv2.png',
@@ -14,7 +15,6 @@ const newsImages = [
   BASE + '4fafd8_2c9f25af6a3841d094ae49f2e4430b8e~mv2.png',
   BASE + '4fafd8_1c30066d8a664b7b9e1ae50be8ecbffb~mv2.jpg',
   BASE + '4fafd8_cbfc196bf29f4855a4473ea6c9a39650~mv2.png',
-  BASE + '4fafd8_84eafc60cc324264a3f9385e05a68e8e~mv2.png',
 ];
 
 const stats = [
