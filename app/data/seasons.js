@@ -12,6 +12,7 @@ export const seasons = [
     cover: '/news_may_2026.png',
     wixUrl: '',
     images: [
+      '/August_Archive.png',
       '/July_Archive.png',
       '/June_2026_archive.png',
       '/news_may_2026.png',
