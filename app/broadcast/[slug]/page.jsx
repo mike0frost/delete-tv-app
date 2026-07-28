@@ -15,6 +15,9 @@ export async function generateMetadata({ params }) {
   return {
     title: `${season.fullTitle} — DELETE TV`,
     description: season.desc,
+    alternates: {
+      canonical: `https://delete-tv.com/broadcast/${slug}`,
+    },
   };
 }
 

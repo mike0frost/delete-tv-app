@@ -11,6 +11,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "DELETE TV",
   description: "Broadcast-oriented archive for video art. Seasons 2015–2026.",
+  alternates: {
+    canonical: "https://delete-tv.com",
+  },
 };
 
 export default function RootLayout({
