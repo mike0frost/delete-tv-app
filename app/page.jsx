@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { seasons } from './data/seasons';
 import ImageLightbox from './components/ImageLightbox';
+import NewsletterForm from './components/NewsletterForm';
 
 const BASE = 'https://static.wixstatic.com/media/';
 
@@ -213,6 +214,8 @@ export default function Page() {
             // Archive years currently visible: 2015 → 2026
           </p>
         </section>
+
+        <NewsletterForm />
 
         {/* Contact */}
         <section
