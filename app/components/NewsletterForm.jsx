@@ -26,7 +26,7 @@ export default function NewsletterForm() {
   }
 
   return (
-    <div className="mt-10 rounded-3xl border border-cyan-500/25 bg-black/25 backdrop-blur-sm p-6 md:p-8 shadow-[0_0_40px_rgba(0,174,255,0.08)]">
+    <div id="newsletter" className="mt-10 rounded-3xl border border-cyan-500/25 bg-black/25 backdrop-blur-sm p-6 md:p-8 shadow-[0_0_40px_rgba(0,174,255,0.08)]">
       <p className="text-cyan-500 text-xs tracking-[0.35em] uppercase mb-2">// Signal_Subscribe</p>
       <h2 className="text-2xl md:text-3xl text-cyan-100 uppercase tracking-wide mb-2">Newsletter</h2>
       <p className="text-cyan-200/60 text-sm tracking-wide mb-6">

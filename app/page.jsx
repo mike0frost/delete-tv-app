@@ -29,6 +29,7 @@ const navLinks = [
   { label: 'NEWS', href: '#news' },
   { label: 'BROADCAST', href: '#broadcast' },
   { label: 'SUBMIT', href: 'https://filmfreeway.com/DeleteTV' },
+  { label: 'NEWSLETTER', href: '#newsletter' },
   { label: 'CONTACT', href: '#contact' },
 ];
 
@@ -86,6 +87,12 @@ export default function Page() {
                   className="px-6 py-3 rounded-2xl border border-cyan-300 bg-cyan-400/10 text-cyan-100 uppercase tracking-[0.25em] text-sm shadow-[0_0_30px_rgba(34,211,238,0.3)] hover:bg-cyan-300/15 transition"
                 >
                   &gt; View Broadcast Archive &lt;
+                </Link>
+                <Link
+                  href="#newsletter"
+                  className="px-6 py-3 rounded-2xl border border-cyan-800/80 text-cyan-300 uppercase tracking-[0.25em] text-sm hover:border-cyan-400 hover:text-cyan-100 transition"
+                >
+                  Subscribe Newsletter
                 </Link>
                 <Link
                   href="#contact"
