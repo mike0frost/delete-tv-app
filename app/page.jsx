@@ -141,7 +141,7 @@ export default function Page() {
           <div className="rounded-3xl border border-cyan-500/25 bg-gradient-to-br from-cyan-500/10 to-blue-500/5 p-6 md:p-8">
             <p className="text-cyan-500 text-xs tracking-[0.35em] uppercase mb-4">Submission Status</p>
             <div className="space-y-4 text-cyan-100/80 leading-relaxed">
-              <p>&gt; Submissions are open for Season 12.</p>
+              <p>&gt; Submissions are open for Season 13.</p>
               <p>&gt; <a href="https://filmfreeway.com/DeleteTV" target="_blank" rel="noopener noreferrer" className="text-red-400 hover:text-red-300 transition-colors font-semibold">Submit here →</a></p>
               <p>&gt; Archive remains accessible through the broadcast section.</p>
             </div>
