@@ -7,6 +7,7 @@ import NewsletterForm from './components/NewsletterForm';
 const BASE = 'https://static.wixstatic.com/media/';
 
 const newsImages = [
+  '/News_season_2026.png',
   '/August_News.png',
   '/July_News.png',
   '/June_2026_news.png',
@@ -15,7 +16,6 @@ const newsImages = [
   BASE + '4fafd8_394305b7e88742a29ae5fbccfa02571b~mv2.png',
   BASE + '4fafd8_d598898949ad48eb85daacedf09894d8~mv2.png',
   BASE + '4fafd8_f804ff3dfe7b49739c7782a002fa9b75~mv2.jpg',
-  BASE + '4fafd8_2c9f25af6a3841d094ae49f2e4430b8e~mv2.png',
 ];
 
 const stats = [
