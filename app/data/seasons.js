@@ -8,7 +8,7 @@ export const seasons = [
     title: 'Season 12',
     fullTitle: 'Season 12 Collection 2026',
     desc: 'Energy & Alchemy.',
-    artists: 'Scottish Ballet, Susanne Layla Petersen, John Williams, Tom Bessoir, Luis Carlos Rodriguez, Patrick Leppert.',
+    artists: 'Scottish Ballet (Scotland), Susanne Layla Petersen (Denmark), John Williams (United States), Tom Bessoir (United States), Luis Carlos Rodriguez (Spain), Patrick Leppert (Switzerland), Jeffrey Moser (United States), Adam E. Stone (United States), Greg Roensch (United States), Maureen Zent (United States), Erica Schreiner (United States), Emiliano Ruggiero (Japan), Oliver Chadwick (United Kingdom), Mike Frost (United Kingdom).',
     date: '2026',
     cover: '/news_may_2026.png',
     wixUrl: '',
