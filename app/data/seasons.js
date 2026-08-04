@@ -165,6 +165,7 @@ export const seasons = [
     title: 'Season 4',
     fullTitle: 'Season 4 Collection 2018',
     desc: 'Seasonal selection from the archive.',
+    artists: 'Timo Zhalnin (Russia), Joe O\'Neill (United States), Thomas Rotenberg (United States), Guli Silberstein (United Kingdom), Jacek Jedrzejzak (Poland), Gregg Biermann (United States), Alisa Yang (United States), Yousef Albagshi (Kuwait), Joe Pisciotta (United States), Dina Yanni (Austria), Lyla Rye (Canada), Emma Sywyj (United States), Hong Yane Wang (United Kingdom), Laura Roe (United Kingdom), Charlie Ford (United States), Subash Sachidananda (India), Anthony Sylvester (United States), David Finkelstein (United States), Miael Davis (United States), Mark Freeman (United States), Christopher Healey (Canada), Iola Kudela (United Kingdom), Alican Durbas (Turkey), Pierre Bessette (France), Bryn Downing (United Kingdom), Farnoosh Abedi (Iran).',
     date: '2018',
     cover: BASE + '4fafd8_2e6f514d14e94aafad92a01ca76450c7~mv2.jpg',
     wixUrl: 'https://www.delete-tv.com/post/season-4-collection-2018',
