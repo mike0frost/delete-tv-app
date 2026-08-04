@@ -65,6 +65,7 @@ export const seasons = [
     title: 'Season 9',
     fullTitle: 'Season 9 Collection 2023',
     desc: 'Curated moving-image selection.',
+    artists: 'Crystal Wu (United Kingdom), Thomas Rotenberg (United States), Johan Eriksson (Sweden), Dan Inglis (New Zealand), John Williams (United States), Tom Bessoir (United States), Hazel Yizhuo Jiao (United Kingdom), Lyla Rye (Canada), Gosha Evdokimov (Russia), Bill Jackson (United Kingdom), Diane Nerwen (United States), Luis Carlos Rodriguez (Spain), Isaac Cañizares (Spain), Harvey Goldman (United States), Iam Anonymous (United States), Damon Mohl (United States), Magdalena Salner (Austria), John T. Williams (United States), Charly Santagado (United States), Dimitar Dimitrov (Bulgaria), Padrick Ritch (United States).',
     date: '2023',
     cover: BASE + '4fafd8_75c04b68c66e4b459bbb31a9e77c26de~mv2.jpg',
     wixUrl: 'https://www.delete-tv.com/post/season-9-collection-2023',
