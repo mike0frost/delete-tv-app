@@ -92,6 +92,12 @@ export default async function BroadcastPage({ params }) {
         <section className="rounded-3xl border border-cyan-500/25 bg-black/25 backdrop-blur-sm p-6 md:p-8 mb-8">
           <p className="text-cyan-500 text-xs tracking-[0.35em] uppercase mb-4">About This Season</p>
           <p className="text-cyan-100/85 text-base md:text-lg leading-relaxed">&gt; {season.desc}</p>
+          {season.artists && (
+            <div className="mt-6">
+              <p className="text-cyan-500 text-xs tracking-[0.35em] uppercase mb-3">Artists</p>
+              <p className="text-cyan-100/75 text-sm leading-relaxed">{season.artists}</p>
+            </div>
+          )}
         </section>
 
         {/* Image gallery */}
