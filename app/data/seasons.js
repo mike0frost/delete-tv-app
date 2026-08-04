@@ -104,6 +104,7 @@ export const seasons = [
     title: 'Season 7',
     fullTitle: 'Season 7 Collection 2021',
     desc: 'Expanded seasonal broadcast catalog.',
+    artists: 'Greg Budanov (United Kingdom), Charly Santagado (United States), Azalia Muchransyah (Indonesia), David Ramiro Rueda (Spain), Michael Sherrington (United Kingdom), Mac Pettit (Canada), Thomas Rotenberg (United States), Fernando Manso (Spain), Yvette Granata (United States), Dimitar Dimitrov (Bulgaria), Nima B. Djavidani (Cyprus), Alex Beriault (Canada), Joe Pisciotta (United States), HEC (United States), Mat Govoni (Australia), Nadin Heinke (Germany), Neda Mohseni (Iran), Yuri Muraoka (Japan), Luis Carlos Rodriguez (Spain).',
     date: '2021',
     cover: BASE + '4fafd8_e31c45b7b9404cab87015715d104d604~mv2.png',
     wixUrl: 'https://www.delete-tv.com/post/season-7-collection-2021',
