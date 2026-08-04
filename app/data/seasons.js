@@ -207,6 +207,7 @@ export const seasons = [
     title: 'Season 2',
     fullTitle: 'Season 2 Collection 2016',
     desc: 'Early archive collection.',
+    artists: 'Iiro Holopainen (Finland), Altea Claveras (Great Britain), Dan Berger (Israel), Juan Antonio Castro (Spain), Carmen Vanderveken (Netherlands), Rachel Denis (United States), Nicole Rayburn (Canada), Anne Murray (United States), Dani Joss (Greece), Aseel Aiyaqoub (Great Britain), Ann Oren (United States), Kevin Kopacka (Germany), Massimo S. Maida (Italy), Shin Gyu Kang (Korea), Salvatore Insana (Italy), Jeffrey Blake Palmer (United States), Robert Lyons (United States), Joe Hedges (United States), Michael Fleming (Netherlands), Annika Dahlsten (Finland), Dan Inglis (New Zealand), Zachary Whitmore (United States), Ying-Fang Shen (Taiwan), Susanna Barbara (Italy), Fabrice Mathieu (France), Julie Boehm (Germany), Zahra Jafari (Iran), Christian Neuman (Luxembourg), Nikolay Sidorov (Russia), Damian Palleiro (Argentina), Charles White (United States), Frederic Even (France), Saman Hosseinpour (Iran), John Williams (United States), Marcin Gizycki (Poland), Mark Franz (United States), Marta Finkelstein (United States), Neil Needleman (United States), Christopher Healey (Canada), James Quinn (Austria), Wanbli Gamache (United States), Amy Bassin / Mark Blickley (United States), Michael Woods (United States), Gokalp Gonen (Turkey).',
     date: '2016',
     cover: BASE + '4fafd8_2ecc7f82739d4c4592cb1665e3ef162f.jpg',
     wixUrl: 'https://www.delete-tv.com/post/season-2-collection-2016',
