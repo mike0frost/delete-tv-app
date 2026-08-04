@@ -83,6 +83,7 @@ export const seasons = [
     title: 'Season 8',
     fullTitle: 'Season 8 Collection 2022',
     desc: 'Experimental film and video archive.',
+    artists: 'Alessandro Amaducci (Italy), Kalani Gacon (Australia), Ulises A Morales (Spain), Luis Carlos Rodriguez (Spain), Jeremy Griffaud (France), Dana Leigh Snyder (United States), Faiyaz Jafri (United States), Neda Mohseni (Denmark), Kasper Christiansen (Denmark), Benjamin Williamson (United Kingdom), Stephanie Castonguay (Canada), Catherine Gough-Brady (Australia), Alex Mendez Giner (United States), Joshua Tuthill (United States), Joe Pisciotta (United States), Neil Needleman (United States), Danielle Zorbas (Greece), Tom Bessoir (United States), Gregory Bennet (New Zealand), Fabrizio Rosso (Switzerland), Iam Anonymous (United States), Ioanna Paraskevopoulou (Greece), Dimple Devadas (United Kingdom), Marcin Gizycki (United States), Adam E. Stone (United States), James Kilpaick (United Kingdom), Katia Sophia Ditzler (Germany), Erin Fussell (United States), Anthi Kougia (Greece), Mike Øfrost (United Kingdom).',
     date: '2022',
     cover: BASE + '4fafd8_a3256fe3c3e64f4c868e6cadb380f8f0~mv2.jpg',
     wixUrl: 'https://www.delete-tv.com/post/season-8-collection-2022',
