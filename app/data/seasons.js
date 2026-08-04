@@ -7,7 +7,7 @@ export const seasons = [
     slug: 'season-12',
     title: 'Season 12',
     fullTitle: 'Season 12 Collection 2026',
-    desc: 'Energy & Alchemy',
+    desc: 'Energy & Alchemy — international video art and AI short film festival. Season 12 features experimental cinema from artists worldwide including Scottish Ballet, Susanne Layla Petersen, John Williams, Tom Bessoir, Luis Carlos Rodriguez, and Patrick Leppert.',
     date: '2026',
     cover: '/news_may_2026.png',
     wixUrl: '',

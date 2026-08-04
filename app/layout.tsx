@@ -9,8 +9,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "DELETE TV",
-  description: "Broadcast-oriented archive for video art. Seasons 2015–2026.",
+  title: "DELETE TV — Video Art & AI Short Film Festival | Open Submissions Season 13",
+  description: "DELETE TV is an international video art and experimental short film festival. Season 13 submissions are open — AI films, video art, and experimental cinema welcome. Submit via FilmFreeway.",
   alternates: {
     canonical: "https://delete-tv.com",
   },

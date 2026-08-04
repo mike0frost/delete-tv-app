@@ -138,18 +138,19 @@ export default function Page() {
           <div className="rounded-3xl border border-cyan-500/25 bg-black/25 backdrop-blur-sm p-6 md:p-8 shadow-[0_0_40px_rgba(0,174,255,0.12)]">
             <p className="text-cyan-500 text-xs tracking-[0.35em] uppercase mb-4">About The Channel</p>
             <div className="space-y-4 text-cyan-100/85 text-base md:text-lg leading-relaxed">
-              <p>&gt; DELETE TV presents a broadcast-oriented archive for video art.</p>
-              <p>&gt; The platform is structured around seasons.</p>
-              <p>&gt; Current public navigation includes News, Broadcast, Submit, and Contact.</p>
-              <p>&gt; The broadcast archive spans from Season 1 in 2015 to Season 12 in 2026.</p>
+              <p>&gt; DELETE TV is an international platform for video art, experimental short films, and AI cinema.</p>
+              <p>&gt; The platform is structured around broadcast seasons — running since 2015.</p>
+              <p>&gt; We welcome video art, experimental film, AI-generated short films, and creative moving image works.</p>
+              <p>&gt; The broadcast archive spans Season 1 (2015) through Season 12 (2026) — 12 seasons of curated international video art.</p>
             </div>
           </div>
 
           <div className="rounded-3xl border border-cyan-500/25 bg-gradient-to-br from-cyan-500/10 to-blue-500/5 p-6 md:p-8">
             <p className="text-cyan-500 text-xs tracking-[0.35em] uppercase mb-4">Submission Status</p>
             <div className="space-y-4 text-cyan-100/80 leading-relaxed">
-              <p>&gt; Submissions are open for Season 13.</p>
-              <p>&gt; <a href="https://filmfreeway.com/DeleteTV" target="_blank" rel="noopener noreferrer" className="text-red-400 hover:text-red-300 transition-colors font-semibold">Submit here →</a></p>
+              <p>&gt; <span className="text-red-400 font-semibold">OPEN CALL — Season 13 submissions are now open.</span></p>
+              <p>&gt; We accept video art, experimental short films, and AI-generated cinema from artists worldwide.</p>
+              <p>&gt; Submit your work via FilmFreeway: <a href="https://filmfreeway.com/DeleteTV" target="_blank" rel="noopener noreferrer" className="text-red-400 hover:text-red-300 transition-colors font-semibold">Submit here →</a></p>
               <p>&gt; Archive remains accessible through the broadcast section.</p>
             </div>
           </div>
@@ -178,7 +179,7 @@ export default function Page() {
               <h2 className="text-3xl md:text-5xl text-cyan-100 uppercase tracking-wide">Season Archive</h2>
             </div>
             <p className="text-cyan-200/70 max-w-xl leading-relaxed">
-              &gt; Twelve seasons currently listed in the public broadcast archive.
+              &gt; Twelve seasons of international video art, experimental film, and AI cinema. Browse the full archive below.
             </p>
           </div>
 
