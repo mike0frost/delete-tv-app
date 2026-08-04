@@ -145,10 +145,10 @@ export default function Page() {
             </div>
           </div>
 
-          <div className="rounded-3xl border border-cyan-500/25 bg-gradient-to-br from-cyan-500/10 to-blue-500/5 p-6 md:p-8">
-            <p className="text-cyan-500 text-xs tracking-[0.35em] uppercase mb-4">Submission Status</p>
+          <div className="rounded-3xl border border-red-500/30 bg-black/25 shadow-[0_0_30px_rgba(239,68,68,0.07)] p-6 md:p-8">
+            <p className="text-red-400/70 text-xs tracking-[0.35em] uppercase mb-4">Submission Status</p>
             <div className="space-y-4 text-cyan-100/80 leading-relaxed">
-              <p>&gt; <span className="text-red-400 font-semibold">OPEN CALL — Season 13 submissions are now open.</span></p>
+              <p>&gt; <span className="font-semibold">OPEN CALL — Season 13 submissions are now open.</span></p>
               <p>&gt; We accept video art, experimental short films, and AI-generated cinema from artists worldwide.</p>
               <p>&gt; Submit your work via FilmFreeway: <a href="https://filmfreeway.com/DeleteTV" target="_blank" rel="noopener noreferrer" className="text-red-400 hover:text-red-300 transition-colors font-semibold">Submit here →</a></p>
               <p>&gt; Archive remains accessible through the broadcast section.</p>
