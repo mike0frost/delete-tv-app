@@ -141,6 +141,7 @@ export const seasons = [
     title: 'Season 5',
     fullTitle: 'Season 5 Collection 2019',
     desc: 'Broadcast archive entry.',
+    artists: 'Alessandro Sedda (Italy), Francesca Sanfilippo (Italy), Jafar Hedayati (Iran), Lander Haverals (Belgium), Saskia Mollen (Netherlands), Luis Carlos Rodriguez (Spain), Lorenzo Papanti (Italy), José Ramón Da Cruz (Spain), Mark Niehus (Australia), Emma Penaz Eisner (United States), Alessia Cecchet (Italy), Pete Burkeet (United States), Bill Brown (United States), Gregg Biermann (United States), Ellen Hemphill (United States), Victoria Donet (France), Dimitar Dimitrov (Bulgaria), Antonis Kartezos (Greece), Ryan O\'Hare (United States), William Brown (United States), Joe Pisciotta (United States), George Welland (United Kingdom), Non Films (United States), Ian Haig (Australia), Jessie Darnell (United States), Abe Abraham (United States), Helmie Stil (United Kingdom), Ryan Lewis (United States), Van Eislande (Belgium), Jan Schekauski (Germany), Philip Rabalais (United States), Markus Kaatsch (United States).',
     date: '2019',
     cover: BASE + '4fafd8_459bf39c6feb46a8ad2e38cf177270b4~mv2.jpg',
     wixUrl: 'https://www.delete-tv.com/post/season-5-collection-2019',
