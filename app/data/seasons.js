@@ -186,6 +186,7 @@ export const seasons = [
     title: 'Season 3',
     fullTitle: 'Season 3 Collection 2017',
     desc: 'Historic DELETE TV season.',
+    artists: 'Will Hooper (United Kingdom), Giorgos Efthimiou (Greece), Laura Iancu (United States), Lander Haverals (Belgium), Paulina Rutman (Chile), Carol Nguyen (Canada), Liam O\'Brien (Australia), Jil Guyon (United States), Tessa Garland (United Kingdom), Asaf Yecheskel (Canada), WFG Distribution (Canada), Daisy Dickinson (United Kingdom), Dani Joss (Greece), Tina Willgren (Sweden), Tara Nelson (United States), Sian Fan (United Kingdom), John Williams (United States), Natalia Alfutova (Russia), Emmanuelle Negre (France), Phil Hastings (United States), Luka Fisher (United States), Dimitar Dimitrov (Bulgaria), Maxime Contour (France), Neil Needleman (United States), L. Freire D\'Anunciacao (Brazil), Slawomir Milewski (Poland), Oliver David (United Kingdom), Joe Pisciotta (United States), Mabby Alam (United Kingdom), Shony Rivnay (Israel).',
     date: '2017',
     cover: BASE + '4fafd8_ef9e6b3453b245799583c0d7e0d17b1c~mv2.jpg',
     wixUrl: 'https://www.delete-tv.com/post/season-3-collection-2017',
