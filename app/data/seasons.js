@@ -122,6 +122,7 @@ export const seasons = [
     title: 'Season 6',
     fullTitle: 'Season 6 Collection 2020',
     desc: 'Programmed visual art season.',
+    artists: 'Michael Rfdshir (United States), John T. Williams (United States), Tom Bessoir (United States), Lisa Frey (Netherlands), Shir Handelsman (Israel), Greg Marshall (Canada), Patrick Tarrant (United Kingdom), Manuel Alvarez Diestro (Spain), Michael Coppola (United Kingdom), Dimitar Dimitrov (Bulgaria), Joe Pisciotta (United States), Laura Iancu (United States), Luis Carlos Rodriguez (Spain), Abhishek Samariya (Australia), Al Díaz (Spain), Thomas Rotenberg (United States), Nataša Stearns (Slovenia), Tommy Heffron (United States), Jola Kudela (United Kingdom), Marina Landia (Germany), Jérémy Griffaud.',
     date: '2020',
     cover: BASE + '4fafd8_0e50d08a080f441d9dac136a6380ddf2~mv2.jpg',
     wixUrl: 'https://www.delete-tv.com/post/season-6-collection-2020',
