@@ -1,0 +1,145 @@
+import { createClient } from '@sanity/client'
+import { readFileSync } from 'fs'
+import { fileURLToPath } from 'url'
+import { dirname, join } from 'path'
+
+// Load env manually since this is a plain Node script
+const envPath = join(dirname(fileURLToPath(import.meta.url)), '../.env.local')
+const env = readFileSync(envPath, 'utf8')
+  .split('\n')
+  .filter(l => l.includes('='))
+  .reduce((acc, line) => {
+    const [key, ...val] = line.split('=')
+    acc[key.trim()] = val.join('=').trim()
+    return acc
+  }, {})
+
+const client = createClient({
+  projectId: env['NEXT_PUBLIC_SANITY_PROJECT_ID'],
+  dataset: env['NEXT_PUBLIC_SANITY_DATASET'] ?? 'production',
+  apiVersion: '2024-01-01',
+  token: env['SANITY_API_TOKEN'],
+  useCdn: false,
+})
+
+const BASE = 'https://static.wixstatic.com/media/'
+
+const seasons = [
+  {
+    number: 12, code: '[S 12]', slug: 'season-12', title: 'Season 12',
+    fullTitle: 'Season 12 Collection 2026', desc: 'Energy & Alchemy.',
+    artists: 'Scottish Ballet (Scotland), Susanne Layla Petersen (Denmark), John Williams (United States), Tom Bessoir (United States), Luis Carlos Rodriguez (Spain), Patrick Leppert (Switzerland), Jeffrey Moser (United States), Adam E. Stone (United States), Greg Roensch (United States), Maureen Zent (United States), Erica Schreiner (United States), Emiliano Ruggiero (Japan), Oliver Chadwick (United Kingdom), Mike Frost (United Kingdom).',
+    date: '2026', coverUrl: '/news_may_2026.png', wixUrl: '',
+    imageUrls: ['/August_Archive.png', '/July_Archive.png', '/June_2026_archive.png', '/news_may_2026.png'],
+  },
+  {
+    number: 11, code: '[S 11]', slug: 'season-11', title: 'Season 11',
+    fullTitle: 'Season 11 Collection 2025', desc: 'Latest DELETE TV broadcast collection.',
+    artists: 'Tom Bessoir, Myriam Bessette, Vasco Diogo, John Williams, Padrick Ritch, Rune Helgesen, Alessandro Amaducci, Adam E. Stone, Andreas Monopolis, Susan Kouguell, Damon Mohl, Alessia Cecchet, Catherine Gough-Brady, Destin Judy, John Woodman, Neil Needleman, Mike Frost, Masha Viasova, Katia Sophia Ditzler, Jacek Jedrzejczak, Harvey Goldman, Brian R Donnelly, Roman Duneshenko, Emiliano Ruggiero.',
+    date: '2025', coverUrl: BASE + '4fafd8_f804ff3dfe7b49739c7782a002fa9b75~mv2.jpg', wixUrl: 'https://www.delete-tv.com/post/season-11-collection',
+    imageUrls: [BASE+'4fafd8_2c9f25af6a3841d094ae49f2e4430b8e~mv2.png', BASE+'4fafd8_1c30066d8a664b7b9e1ae50be8ecbffb~mv2.jpg', BASE+'4fafd8_cbfc196bf29f4855a4473ea6c9a39650~mv2.png', BASE+'4fafd8_94e7756566d848e5a2ae92ca499a2454~mv2.png', BASE+'4fafd8_948d746fe0e745b5bd29cd2f84e40f5f~mv2.png'],
+  },
+  {
+    number: 10, code: '[S 10]', slug: 'season-10', title: 'Season 10',
+    fullTitle: 'Season 10 Collection 2024', desc: 'Archive broadcast season.',
+    artists: 'Nima B. Djavidani, Giorgos Efthimiou, Pato Verdi, Lids Bierenday, Luis Carlos Rodríguez, Jennida Chase, Michel Pavlou, Neil Needleman, Mike Frost, Veronica Vossen, Abishek Udaykumar, Atomic Elroy, Carl Knickerbocker, Dina Yanni, Susanne Layla Peterson, Hong Yane Wang, Natalia Cortesi, Adam E. Stone, Lynn Bianchi, Alexander Schellow, Brian Alexander, Natasa Prosenc Stearns, Jose Luis Benavides, Anna Grigorian, John Woodman, Erica Schreiner, Brittany Severance.',
+    date: '2024', coverUrl: BASE+'4fafd8_3459caba8c304d5b8d32d251a309f28e~mv2.png', wixUrl: 'https://www.delete-tv.com/post/season-10-collection',
+    imageUrls: [BASE+'4fafd8_642361d158254cdb8e1e1c1ba1255144~mv2.png', BASE+'4fafd8_a11f397a430a4858bcbf0962fa755a8b~mv2.jpg', BASE+'4fafd8_a31155a4432a4260b8131c8249033b3e~mv2.jpg', BASE+'4fafd8_ee0027a2e48e4533abb85a9c15dc1f86~mv2.jpg', BASE+'4fafd8_50671663f21d438f833007798f383053~mv2.jpg', BASE+'4fafd8_9ff977355768406cbc90a571d4f70abf~mv2.jpg'],
+  },
+  {
+    number: 9, code: '[S 09]', slug: 'season-09', title: 'Season 9',
+    fullTitle: 'Season 9 Collection 2023', desc: 'Curated moving-image selection.',
+    artists: 'Crystal Wu (United Kingdom), Thomas Rotenberg (United States), Johan Eriksson (Sweden), Dan Inglis (New Zealand), John Williams (United States), Tom Bessoir (United States), Hazel Yizhuo Jiao (United Kingdom), Lyla Rye (Canada), Gosha Evdokimov (Russia), Bill Jackson (United Kingdom), Diane Nerwen (United States), Luis Carlos Rodriguez (Spain), Isaac Cañizares (Spain), Harvey Goldman (United States), Iam Anonymous (United States), Damon Mohl (United States), Magdalena Salner (Austria), John T. Williams (United States), Charly Santagado (United States), Dimitar Dimitrov (Bulgaria), Padrick Ritch (United States).',
+    date: '2023', coverUrl: BASE+'4fafd8_75c04b68c66e4b459bbb31a9e77c26de~mv2.jpg', wixUrl: 'https://www.delete-tv.com/post/season-9-collection-2023',
+    imageUrls: [BASE+'4fafd8_deed6a89f2ec420f839a8721346b40d9~mv2.jpg', BASE+'4fafd8_cde7533dcb9348c1bfb1cca142cddcd5~mv2.jpg', BASE+'4fafd8_207a9d2ff21f4836975e4900be1ac1d8~mv2.jpg', BASE+'4fafd8_3540639ab5fd446ab6382094e84e4e9b~mv2.jpg'],
+  },
+  {
+    number: 8, code: '[S 08]', slug: 'season-08', title: 'Season 8',
+    fullTitle: 'Season 8 Collection 2022', desc: 'Experimental film and video archive.',
+    artists: 'Alessandro Amaducci (Italy), Kalani Gacon (Australia), Ulises A Morales (Spain), Luis Carlos Rodriguez (Spain), Jeremy Griffaud (France), Dana Leigh Snyder (United States), Faiyaz Jafri (United States), Neda Mohseni (Denmark), Kasper Christiansen (Denmark), Benjamin Williamson (United Kingdom), Stephanie Castonguay (Canada), Catherine Gough-Brady (Australia), Alex Mendez Giner (United States), Joshua Tuthill (United States), Joe Pisciotta (United States), Neil Needleman (United States), Danielle Zorbas (Greece), Tom Bessoir (United States), Gregory Bennet (New Zealand), Fabrizio Rosso (Switzerland), Iam Anonymous (United States), Ioanna Paraskevopoulou (Greece), Dimple Devadas (United Kingdom), Marcin Gizycki (United States), Adam E. Stone (United States), James Kilpaick (United Kingdom), Katia Sophia Ditzler (Germany), Erin Fussell (United States), Anthi Kougia (Greece), Mike Øfrost (United Kingdom).',
+    date: '2022', coverUrl: BASE+'4fafd8_a3256fe3c3e64f4c868e6cadb380f8f0~mv2.jpg', wixUrl: 'https://www.delete-tv.com/post/season-8-collection-2022',
+    imageUrls: [BASE+'4fafd8_8238b963cd2d43f98b2e502d618b0fd2~mv2.jpg', BASE+'4fafd8_014418a49c0f4298bf2c3f55b0a2f363~mv2.jpg', BASE+'4fafd8_fd7016826e4946d58d8f3b2c21283a72~mv2.jpg', BASE+'4fafd8_b98b1f738488405d984a0d45431ed34e~mv2.jpg', BASE+'4fafd8_dc3bb7121ff54747bc524330af40dd44~mv2.jpg', BASE+'4fafd8_d26d7b8683134b3f80f69ef76696d957~mv2.jpg', BASE+'4fafd8_e8d6e1d311804cb191d2da7c264623ea~mv2.jpg'],
+  },
+  {
+    number: 7, code: '[S 07]', slug: 'season-07', title: 'Season 7',
+    fullTitle: 'Season 7 Collection 2021', desc: 'Expanded seasonal broadcast catalog.',
+    artists: 'Greg Budanov (United Kingdom), Charly Santagado (United States), Azalia Muchransyah (Indonesia), David Ramiro Rueda (Spain), Michael Sherrington (United Kingdom), Mac Pettit (Canada), Thomas Rotenberg (United States), Fernando Manso (Spain), Yvette Granata (United States), Dimitar Dimitrov (Bulgaria), Nima B. Djavidani (Cyprus), Alex Beriault (Canada), Joe Pisciotta (United States), HEC (United States), Mat Govoni (Australia), Nadin Heinke (Germany), Neda Mohseni (Iran), Yuri Muraoka (Japan), Luis Carlos Rodriguez (Spain).',
+    date: '2021', coverUrl: BASE+'4fafd8_e31c45b7b9404cab87015715d104d604~mv2.png', wixUrl: 'https://www.delete-tv.com/post/season-7-collection-2021',
+    imageUrls: [BASE+'4fafd8_d57a72b838fd4189927e2693f63d88b6~mv2.jpg', BASE+'4fafd8_7eda68558ba3479098925a8516309af2~mv2.png', BASE+'4fafd8_33dfce1f5abe41beba708a4d93c81ce7~mv2.jpg', BASE+'4fafd8_43ea9ea021704310829c58812619eb23~mv2.jpg'],
+  },
+  {
+    number: 6, code: '[S 06]', slug: 'season-06', title: 'Season 6',
+    fullTitle: 'Season 6 Collection 2020', desc: 'Programmed visual art season.',
+    artists: 'Michael Rfdshir (United States), John T. Williams (United States), Tom Bessoir (United States), Lisa Frey (Netherlands), Shir Handelsman (Israel), Greg Marshall (Canada), Patrick Tarrant (United Kingdom), Manuel Alvarez Diestro (Spain), Michael Coppola (United Kingdom), Dimitar Dimitrov (Bulgaria), Joe Pisciotta (United States), Laura Iancu (United States), Luis Carlos Rodriguez (Spain), Abhishek Samariya (Australia), Al Díaz (Spain), Thomas Rotenberg (United States), Nataša Stearns (Slovenia), Tommy Heffron (United States), Jola Kudela (United Kingdom), Marina Landia (Germany), Jérémy Griffaud.',
+    date: '2020', coverUrl: BASE+'4fafd8_0e50d08a080f441d9dac136a6380ddf2~mv2.jpg', wixUrl: 'https://www.delete-tv.com/post/season-6-collection-2020',
+    imageUrls: [BASE+'4fafd8_e8d112fc7d684d7c83888ccbe4bd5426~mv2.jpg', BASE+'4fafd8_d99fa822e97f484b8509304f70854023~mv2.jpg', BASE+'4fafd8_5849594db8614376a45ae4f562e5a378~mv2.jpg', BASE+'4fafd8_e060a665651c47ce956dbdc37f4099e0~mv2.jpg', BASE+'4fafd8_70323dde57f24aba87bbff425082dc7e~mv2.jpg'],
+  },
+  {
+    number: 5, code: '[S 05]', slug: 'season-05', title: 'Season 5',
+    fullTitle: 'Season 5 Collection 2019', desc: 'Broadcast archive entry.',
+    artists: 'Alessandro Sedda (Italy), Francesca Sanfilippo (Italy), Jafar Hedayati (Iran), Lander Haverals (Belgium), Saskia Mollen (Netherlands), Luis Carlos Rodriguez (Spain), Lorenzo Papanti (Italy), José Ramón Da Cruz (Spain), Mark Niehus (Australia), Emma Penaz Eisner (United States), Alessia Cecchet (Italy), Pete Burkeet (United States), Bill Brown (United States), Gregg Biermann (United States), Ellen Hemphill (United States), Victoria Donet (France), Dimitar Dimitrov (Bulgaria), Antonis Kartezos (Greece), Ryan O\'Hare (United States), William Brown (United States), Joe Pisciotta (United States), George Welland (United Kingdom), Non Films (United States), Ian Haig (Australia), Jessie Darnell (United States), Abe Abraham (United States), Helmie Stil (United Kingdom), Ryan Lewis (United States), Van Eislande (Belgium), Jan Schekauski (Germany), Philip Rabalais (United States), Markus Kaatsch (United States).',
+    date: '2019', coverUrl: BASE+'4fafd8_459bf39c6feb46a8ad2e38cf177270b4~mv2.jpg', wixUrl: 'https://www.delete-tv.com/post/season-5-collection-2019',
+    imageUrls: [BASE+'4fafd8_d258c0b1005149f29f29fc69d8dba411~mv2.jpg', BASE+'4fafd8_1488a35732694bb69b23f86cb1b479d9~mv2.jpg', BASE+'4fafd8_229d3d879d0943f6a8c95fe5b65c54eb~mv2.jpg', BASE+'4fafd8_92276f932b844f40a939b700a2f1700a~mv2.jpg', BASE+'4fafd8_006968cdce1841b5b7218635cd84ed8a~mv2.jpg', BASE+'4fafd8_3165b827162c4747a332d245cc628410~mv2.jpg', BASE+'4fafd8_c60b6d744b8b4eb3a5f8f3e212b9341c~mv2.jpg', BASE+'4fafd8_4a20716cd4884e2390767a28b96573bd~mv2.jpg', BASE+'4fafd8_10f595cbab3e424eb33f64f14cad89e0~mv2.png', BASE+'4fafd8_ccc42dac7b074384a5814427f7abdfc9~mv2.png'],
+  },
+  {
+    number: 4, code: '[S 04]', slug: 'season-04', title: 'Season 4',
+    fullTitle: 'Season 4 Collection 2018', desc: 'Seasonal selection from the archive.',
+    artists: 'Timo Zhalnin (Russia), Joe O\'Neill (United States), Thomas Rotenberg (United States), Guli Silberstein (United Kingdom), Jacek Jedrzejzak (Poland), Gregg Biermann (United States), Alisa Yang (United States), Yousef Albagshi (Kuwait), Joe Pisciotta (United States), Dina Yanni (Austria), Lyla Rye (Canada), Emma Sywyj (United States), Hong Yane Wang (United Kingdom), Laura Roe (United Kingdom), Charlie Ford (United States), Subash Sachidananda (India), Anthony Sylvester (United States), David Finkelstein (United States), Miael Davis (United States), Mark Freeman (United States), Christopher Healey (Canada), Iola Kudela (United Kingdom), Alican Durbas (Turkey), Pierre Bessette (France), Bryn Downing (United Kingdom), Farnoosh Abedi (Iran).',
+    date: '2018', coverUrl: BASE+'4fafd8_2e6f514d14e94aafad92a01ca76450c7~mv2.jpg', wixUrl: 'https://www.delete-tv.com/post/season-4-collection-2018',
+    imageUrls: [BASE+'4fafd8_fbf3153d153c4429b856adf0611b3cee~mv2.jpg', BASE+'4fafd8_3fb9ed8dff9248e7a697691bd07dab90~mv2.jpg', BASE+'4fafd8_30ca90c7e56841b7a15e7bd587734746~mv2.jpg', BASE+'4fafd8_5e852c160963406a8e9adc95f5d31204~mv2.jpg', BASE+'4fafd8_32a2ea8fafd54667b405e8dff056db60~mv2.jpg', BASE+'4fafd8_8ce15b502cbe4bb9ad3b2ec33e65fb38~mv2.jpg', BASE+'4fafd8_01c1a0726b5f4e229ae460b3646a3c52~mv2.jpg'],
+  },
+  {
+    number: 3, code: '[S 03]', slug: 'season-03', title: 'Season 3',
+    fullTitle: 'Season 3 Collection 2017', desc: 'Historic DELETE TV season.',
+    artists: 'Will Hooper (United Kingdom), Giorgos Efthimiou (Greece), Laura Iancu (United States), Lander Haverals (Belgium), Paulina Rutman (Chile), Carol Nguyen (Canada), Liam O\'Brien (Australia), Jil Guyon (United States), Tessa Garland (United Kingdom), Asaf Yecheskel (Canada), WFG Distribution (Canada), Daisy Dickinson (United Kingdom), Dani Joss (Greece), Tina Willgren (Sweden), Tara Nelson (United States), Sian Fan (United Kingdom), John Williams (United States), Natalia Alfutova (Russia), Emmanuelle Negre (France), Phil Hastings (United States), Luka Fisher (United States), Dimitar Dimitrov (Bulgaria), Maxime Contour (France), Neil Needleman (United States), L. Freire D\'Anunciacao (Brazil), Slawomir Milewski (Poland), Oliver David (United Kingdom), Joe Pisciotta (United States), Mabby Alam (United Kingdom), Shony Rivnay (Israel).',
+    date: '2017', coverUrl: BASE+'4fafd8_ef9e6b3453b245799583c0d7e0d17b1c~mv2.jpg', wixUrl: 'https://www.delete-tv.com/post/season-3-collection-2017',
+    imageUrls: [BASE+'4fafd8_2be5ae3400924cf9a08c38ce86dbf928~mv2.jpg', BASE+'4fafd8_6f6cbd1850c848a6a1b11cab26c3cb5c~mv2.jpg', BASE+'4fafd8_4e58e830d15f43729e2f098d4509d00f~mv2.jpg', BASE+'4fafd8_779a0426e17d4ef097eb9f455e287ae7~mv2.jpg', BASE+'4fafd8_4566ee2be11c44e9a00a3863cf27e4de~mv2.jpg', BASE+'4fafd8_2a64d4375cf24decab88d3b7a79337fd~mv2.jpg', BASE+'4fafd8_9c7fd25d61ea487b8f169d157a369246~mv2.jpg'],
+  },
+  {
+    number: 2, code: '[S 02]', slug: 'season-02', title: 'Season 2',
+    fullTitle: 'Season 2 Collection 2016', desc: 'Early archive collection.',
+    artists: 'Iiro Holopainen (Finland), Altea Claveras (Great Britain), Dan Berger (Israel), Juan Antonio Castro (Spain), Carmen Vanderveken (Netherlands), Rachel Denis (United States), Nicole Rayburn (Canada), Anne Murray (United States), Dani Joss (Greece), Aseel Aiyaqoub (Great Britain), Ann Oren (United States), Kevin Kopacka (Germany), Massimo S. Maida (Italy), Shin Gyu Kang (Korea), Salvatore Insana (Italy), Jeffrey Blake Palmer (United States), Robert Lyons (United States), Joe Hedges (United States), Michael Fleming (Netherlands), Annika Dahlsten (Finland), Dan Inglis (New Zealand), Zachary Whitmore (United States), Ying-Fang Shen (Taiwan), Susanna Barbara (Italy), Fabrice Mathieu (France), Julie Boehm (Germany), Zahra Jafari (Iran), Christian Neuman (Luxembourg), Nikolay Sidorov (Russia), Damian Palleiro (Argentina), Charles White (United States), Frederic Even (France), Saman Hosseinpour (Iran), John Williams (United States), Marcin Gizycki (Poland), Mark Franz (United States), Marta Finkelstein (United States), Neil Needleman (United States), Christopher Healey (Canada), James Quinn (Austria), Wanbli Gamache (United States), Amy Bassin / Mark Blickley (United States), Michael Woods (United States), Gokalp Gonen (Turkey).',
+    date: '2016', coverUrl: BASE+'4fafd8_2ecc7f82739d4c4592cb1665e3ef162f.jpg', wixUrl: 'https://www.delete-tv.com/post/season-2-collection-2016',
+    imageUrls: [BASE+'4fafd8_1c44112e6a434e789a20f60e0846f660.jpg', BASE+'4fafd8_210287404577401f8fc1225222b325fa.jpg', BASE+'4fafd8_43a601b236b74163aac0942f0fba2c48.jpg', BASE+'4fafd8_2865ce95ab8f433a909fab2917c91c74.jpg', BASE+'4fafd8_39e240e2fb5d45c4b0f76b8e6963b14b.jpg', BASE+'4fafd8_fa739b5e097247c4be7da05728693a9e.jpg', BASE+'4fafd8_92af4df63ecf404f8f4a764b3f478fc9.jpg', BASE+'4fafd8_faeeef7dc22b470791f5a7c29dbb888a~mv2.jpg', BASE+'4fafd8_46d906055e0e4eda8907731d1ddfeae1~mv2.jpg', BASE+'4fafd8_718dd99b89114193884c3c74a2dd2db5~mv2.jpg', BASE+'4fafd8_f592a41606c847eaba9dd27a079b4e45~mv2.jpg'],
+  },
+  {
+    number: 1, code: '[S 01]', slug: 'season-01', title: 'Season 1',
+    fullTitle: 'Season 1 Collection 2015', desc: 'The first available season.',
+    artists: 'Kuesti Fraun (Germany), Aditya Singh (India), Talia Randall (Great Britain / Israel), Lyle Piso (Canada), Mario Duomarco (Uruguay), Greg Wilcox (United States), Coalfather Industries (United States), Jaime Giraldo (Canada), Disspong Sampattavanich (Thailand), Jaime Fidalgo (Mexico), Mauricio Bartok (Brazil), Tom Chimiak (United Kingdom), Marat Narimanov (Russia), Diego Costa (Chile), Quentin Perez (France), Ivan Barriuso (Spain), Joseph Lorenzo (United States), Terry Misseraoui (France), Padelis Paradisis (Greece), Jordan Lockhart (United States), Joaquin Ferronato (Argentina), Dimitar Dimitrov (Bulgaria), Mohammad Zare (Israel), Carlos Alonso (Spain), Trygve Nielsen (Norway), Zachary Whitmore (United States), Alexander Delnevo (Italy), Aaron Danbar (United States), Damon Andrew Embry (United States), Nikos Kellis (Greece), Jarno Hariju (Finland), Andrés Beltrán Nossa (Colombia), Dimitris Simou (Greece), Wrik Mead (Canada), Maryam Katanforoush (Iran), Manendra Singh Lodi (India), Danny Clark (United States), Laura Iacu (United States), Vincent Gibaud (France), Hunter Hopewell (United States), Jim Rolland (France), Andrej Kolencik (Slovakia), Fabrice Bracq (France), Damon Mohl (United States), Gillian McIver (United Kingdom), Pol Gonzales Olle (Spain), Alisi Telengut (France), Lynn Kim (United States), Barzan Rostami (Iran), Joe Pisciotta (United States), Victor Forrest (France).',
+    date: '2015', coverUrl: BASE+'4fafd8_cfc6df402e9141d9a41d26a1be8de4a0.jpg', wixUrl: '',
+    imageUrls: [BASE+'4fafd8_3b2c5534a1bf4f02895946ecbc2676c1.jpg', BASE+'4fafd8_2bd0075a80d04a34a16954f84fc1c2a9.jpg', BASE+'4fafd8_7ff5981b40d1495bb75d209eeb43edb9.jpg', BASE+'4fafd8_7a62bde228f34988bfd97ba2de467133.jpg'],
+  },
+]
+
+async function migrate() {
+  console.log(`Migrating ${seasons.length} seasons to Sanity project: ${env['NEXT_PUBLIC_SANITY_PROJECT_ID']}`)
+
+  for (const season of seasons) {
+    const doc = {
+      _type: 'season',
+      _id: `season-${season.number}`,
+      number: season.number,
+      code: season.code,
+      slug: season.slug,
+      title: season.title,
+      fullTitle: season.fullTitle,
+      desc: season.desc,
+      artists: season.artists,
+      date: season.date,
+      coverUrl: season.coverUrl || undefined,
+      wixUrl: season.wixUrl || undefined,
+      imageUrls: season.imageUrls,
+    }
+
+    await client.createOrReplace(doc)
+    console.log(`✅ Migrated: ${season.fullTitle}`)
+  }
+
+  console.log('\n✅ All seasons migrated successfully!')
+  console.log('Open https://delete-tv.sanity.studio to see your content.')
+}
+
+migrate().catch(err => {
+  console.error('Migration failed:', err.message)
+  process.exit(1)
+})

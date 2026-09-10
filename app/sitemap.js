@@ -1,8 +1,10 @@
-import { seasons } from './data/seasons';
+import { client } from '../sanity/lib/client';
+import { allSlugsQuery } from '../sanity/lib/queries';
 
-export default function sitemap() {
+export default async function sitemap() {
   const base = 'https://delete-tv.com';
 
+  const seasons = await client.fetch(allSlugsQuery);
   const seasonUrls = seasons.map((s) => ({
     url: `${base}/broadcast/${s.slug}`,
     lastModified: new Date(),

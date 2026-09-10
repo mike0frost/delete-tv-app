@@ -1,16 +1,20 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { seasons, getSeasonBySlug } from '../../data/seasons';
 import ImageLightbox from '../../components/ImageLightbox';
+import { client } from '../../../sanity/lib/client';
+import { allSeasonsQuery, seasonBySlugQuery } from '../../../sanity/lib/queries';
+
+export const revalidate = 3600;
 
 export async function generateStaticParams() {
+  const seasons = await client.fetch(allSeasonsQuery);
   return seasons.map((s) => ({ slug: s.slug }));
 }
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const season = getSeasonBySlug(slug);
+  const season = await client.fetch(seasonBySlugQuery, { slug });
   if (!season) return {};
   return {
     title: `${season.fullTitle} — DELETE TV`,
@@ -23,12 +27,17 @@ export async function generateMetadata({ params }) {
 
 export default async function BroadcastPage({ params }) {
   const { slug } = await params;
-  const season = getSeasonBySlug(slug);
+  const [season, allSeasons] = await Promise.all([
+    client.fetch(seasonBySlugQuery, { slug }),
+    client.fetch(allSeasonsQuery),
+  ]);
   if (!season) notFound();
 
-  const currentIndex = seasons.findIndex((s) => s.slug === slug);
-  const prev = seasons[currentIndex + 1] ?? null;
-  const next = seasons[currentIndex - 1] ?? null;
+  const currentIndex = allSeasons.findIndex((s) => s.slug === slug);
+  const prev = allSeasons[currentIndex + 1] ?? null;
+  const next = allSeasons[currentIndex - 1] ?? null;
+
+  const images = season.imageUrls ?? [];
 
   return (
     <div className="min-h-screen bg-[#030814] text-cyan-100 overflow-x-hidden relative font-mono">
@@ -45,13 +54,14 @@ export default async function BroadcastPage({ params }) {
 
         {/* Cover */}
         <section className="rounded-3xl overflow-hidden border border-cyan-500/25 shadow-[0_0_60px_rgba(0,174,255,0.15)] mb-8">
-          {season.cover ? (
+          {season.coverUrl ? (
             <div className="relative w-full h-[420px] md:h-[520px]">
               <Image
-                src={season.cover}
+                src={season.coverUrl}
                 alt={season.fullTitle}
                 fill
                 priority
+                unoptimized={season.coverUrl?.startsWith('https://static.wixstatic.com')}
                 className="object-cover"
                 sizes="(max-width: 1280px) 100vw, 1152px"
               />
@@ -101,11 +111,11 @@ export default async function BroadcastPage({ params }) {
         </section>
 
         {/* Image gallery */}
-        {season.images.length > 0 && (
+        {images.length > 0 && (
           <section className="rounded-3xl border border-cyan-500/25 bg-black/25 backdrop-blur-sm p-6 md:p-8 mb-8">
             <p className="text-cyan-500 text-xs tracking-[0.35em] uppercase mb-6">Episode Stills</p>
             <ImageLightbox
-              images={season.images}
+              images={images}
               altPrefix={`${season.title} still`}
               gridClassName="grid-cols-2 md:grid-cols-3"
               aspectClassName="aspect-video"

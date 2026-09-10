@@ -1,8 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { seasons } from './data/seasons';
 import ImageLightbox from './components/ImageLightbox';
 import NewsletterForm from './components/NewsletterForm';
+import { client } from '../sanity/lib/client';
+import { allSeasonsQuery } from '../sanity/lib/queries';
+
+export const revalidate = 3600;
 
 const BASE = 'https://static.wixstatic.com/media/';
 
@@ -33,7 +36,8 @@ const navLinks = [
   { label: 'CONTACT', href: '#contact' },
 ];
 
-export default function Page() {
+export default async function Page() {
+  const seasons = await client.fetch(allSeasonsQuery);
   return (
     <div className="min-h-screen bg-[#030814] text-cyan-100 overflow-x-hidden relative font-mono">
       <div className="absolute inset-0 opacity-20 pointer-events-none [background-image:linear-gradient(rgba(0,180,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(0,180,255,0.08)_1px,transparent_1px)] [background-size:42px_42px]" />
@@ -190,10 +194,10 @@ export default function Page() {
                 href={`/broadcast/${season.slug}`}
                 className="group rounded-3xl border border-cyan-500/20 bg-[#06111f]/60 overflow-hidden shadow-[inset_0_0_20px_rgba(0,180,255,0.05)] hover:border-cyan-300/60 hover:shadow-[0_0_25px_rgba(34,211,238,0.15)] transition"
               >
-                {season.cover ? (
+                {season.coverUrl ? (
                   <div className="relative h-44 w-full overflow-hidden">
                     <Image
-                      src={season.cover}
+                      src={season.coverUrl}
                       alt={season.fullTitle}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
