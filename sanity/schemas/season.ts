@@ -64,6 +64,7 @@ export const seasonSchema = defineType({
       name: 'coverUrl',
       title: 'Cover Image URL',
       type: 'url',
+      validation: (Rule) => Rule.uri({ allowRelative: true, scheme: ['http', 'https'] }),
       description: 'URL of the cover image (first/oldest broadcast). Can be /public path or Wixstatic URL.',
     }),
     defineField({
@@ -76,7 +77,7 @@ export const seasonSchema = defineType({
       name: 'imageUrls',
       title: 'Broadcast Image URLs',
       type: 'array',
-      of: [{ type: 'url' }],
+      of: [{ type: 'url', validation: (Rule) => Rule.uri({ allowRelative: true, scheme: ['http', 'https'] }) }],
       description: 'All broadcast images for the gallery lightbox',
     }),
   ],
