@@ -26,6 +26,12 @@ export const filmsBySeasonQuery = groq`
   }
 `
 
+export const newsItemsQuery = groq`
+  *[_type == "newsItem"] | order(order asc) {
+    _id, imageUrl, caption,
+  }
+`
+
 export const allFilmsQuery = groq`
   *[_type == "film" && status == "accepted"] | order(season->number desc, director asc) {
     _id, title, director, directorCountry, synopsis, runtime, productionYear, category,

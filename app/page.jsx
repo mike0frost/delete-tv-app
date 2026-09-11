@@ -3,23 +3,9 @@ import Link from 'next/link';
 import ImageLightbox from './components/ImageLightbox';
 import NewsletterForm from './components/NewsletterForm';
 import { client } from '../sanity/lib/client';
-import { allSeasonsQuery } from '../sanity/lib/queries';
+import { allSeasonsQuery, newsItemsQuery } from '../sanity/lib/queries';
 
 export const revalidate = 3600;
-
-const BASE = 'https://static.wixstatic.com/media/';
-
-const newsImages = [
-  '/DeleteTV_Winner_26_news.png',
-  '/Submissions_open_news.png',
-  '/News_season_2026.png',
-  '/August_News.png',
-  '/July_News.png',
-  '/June_2026_news.png',
-  '/news_may_2026_square.png',
-  BASE + '4fafd8_76a8afdb11ec42629dc885e135107786~mv2.png',
-  BASE + '4fafd8_394305b7e88742a29ae5fbccfa02571b~mv2.png',
-];
 
 const stats = [
   ['PLATFORM', 'DELETE TV'],
@@ -37,7 +23,11 @@ const navLinks = [
 ];
 
 export default async function Page() {
-  const seasons = await client.fetch(allSeasonsQuery);
+  const [seasons, newsItems] = await Promise.all([
+    client.fetch(allSeasonsQuery),
+    client.fetch(newsItemsQuery),
+  ]);
+  const newsImages = newsItems.map((item) => item.imageUrl);
   return (
     <div className="min-h-screen bg-[#030814] text-cyan-100 overflow-x-hidden relative font-mono">
       <div className="absolute inset-0 opacity-20 pointer-events-none [background-image:linear-gradient(rgba(0,180,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(0,180,255,0.08)_1px,transparent_1px)] [background-size:42px_42px]" />
