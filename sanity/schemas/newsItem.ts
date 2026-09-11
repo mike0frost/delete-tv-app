@@ -6,10 +6,10 @@ export const newsItemSchema = defineType({
   type: 'document',
   fields: [
     defineField({
-      name: 'imageUrl',
-      title: 'Image URL',
-      type: 'url',
-      description: 'Uploaded to Sanity’s CDN — replace by re-running the news migration, or paste a new cdn.sanity.io URL',
+      name: 'image',
+      title: 'Image',
+      type: 'image',
+      options: { hotspot: true },
       validation: (Rule) => Rule.required(),
     }),
     defineField({
@@ -37,12 +37,13 @@ export const newsItemSchema = defineType({
     select: {
       title: 'caption',
       subtitle: 'order',
-      media: 'imageUrl',
+      media: 'image',
     },
-    prepare({ title, subtitle }) {
+    prepare({ title, subtitle, media }) {
       return {
         title: title || 'News image',
         subtitle: `Order: ${subtitle}`,
+        media,
       }
     },
   },
