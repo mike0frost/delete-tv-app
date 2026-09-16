@@ -26,8 +26,9 @@ export const filmsBySeasonQuery = groq`
   }
 `
 
+// Only the 9 newest are shown (keeps the grid a clean 3x3); older items stay in Sanity for the record.
 export const newsItemsQuery = groq`
-  *[_type == "newsItem"] | order(order desc) {
+  *[_type == "newsItem"] | order(order desc) [0...9] {
     _id,
     "imageUrl": image.asset->url,
     caption,
