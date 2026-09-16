@@ -22,15 +22,15 @@ export const newsItemSchema = defineType({
       name: 'order',
       title: 'Display Order',
       type: 'number',
-      description: 'Lower numbers show first in the grid',
+      description: 'Higher numbers show first. To add a new item as the newest, use a number one higher than the current highest.',
       validation: (Rule) => Rule.required().integer(),
     }),
   ],
   orderings: [
     {
-      title: 'Display Order',
-      name: 'orderAsc',
-      by: [{ field: 'order', direction: 'asc' }],
+      title: 'Display Order, Newest First',
+      name: 'orderDesc',
+      by: [{ field: 'order', direction: 'desc' }],
     },
   ],
   preview: {

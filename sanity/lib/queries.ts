@@ -27,7 +27,7 @@ export const filmsBySeasonQuery = groq`
 `
 
 export const newsItemsQuery = groq`
-  *[_type == "newsItem"] | order(order asc) {
+  *[_type == "newsItem"] | order(order desc) {
     _id,
     "imageUrl": image.asset->url,
     caption,
