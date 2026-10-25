@@ -30,12 +30,12 @@ const pad = (n) => String(n).padStart(2, '0');
 export default function DeadlineCountdown() {
   const now = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
-  const box = 'rounded-2xl border border-cyan-500/20 bg-black/30 px-4 py-3 w-full md:w-auto';
+  const box = 'rounded-2xl border border-cyan-500/20 bg-black/30 px-5 py-4 w-full md:max-w-md lg:max-w-none';
 
   if (now !== null && now >= EXTENDED_DEADLINE) {
     return (
       <div className={box}>
-        <p className="text-cyan-100 text-sm leading-relaxed">
+        <p className="text-cyan-100 text-sm md:text-base leading-relaxed">
           Submissions closed. Selected artists are notified by 14 March 2027.
         </p>
       </div>
@@ -45,7 +45,7 @@ export default function DeadlineCountdown() {
   if (now !== null && now >= REGULAR_DEADLINE) {
     return (
       <div className={box}>
-        <p className="text-cyan-100 text-sm leading-relaxed max-w-md">
+        <p className="text-cyan-100 text-sm md:text-base leading-relaxed">
           Regular deadline passed — extended submissions open until 17 February 2027.
         </p>
       </div>
@@ -63,7 +63,7 @@ export default function DeadlineCountdown() {
     <div className={box}>
       <p
         id="deadline-label"
-        className="text-[10px] uppercase tracking-[0.3em] text-red-400/80 mb-2"
+        className="text-[11px] uppercase tracking-[0.3em] text-red-400/80 mb-3"
       >
         Regular deadline in
       </p>
@@ -74,16 +74,16 @@ export default function DeadlineCountdown() {
       >
         {units.map(([label, value]) => (
           <div key={label} className="flex flex-col">
-            <span className="text-2xl md:text-3xl text-cyan-100 tabular-nums leading-none">
+            <span className="text-4xl md:text-5xl text-cyan-100 tabular-nums leading-none">
               {value}
             </span>
-            <span className="mt-1 text-[10px] uppercase tracking-[0.25em] text-cyan-500">
+            <span className="mt-2 text-[11px] uppercase tracking-[0.25em] text-cyan-500">
               {label}
             </span>
           </div>
         ))}
       </div>
-      <p className="mt-3 text-xs text-cyan-300/80">
+      <p className="mt-4 text-xs md:text-sm text-cyan-300/80">
         <time dateTime="2026-12-31T23:59:00Z">31 December 2026, 11:59 PM London time</time>
       </p>
     </div>

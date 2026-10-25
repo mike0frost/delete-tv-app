@@ -125,7 +125,7 @@ export default function OpenCall2027Page() {
 
         {/* Hero */}
         <section className="border border-red-500/50 bg-black/30 backdrop-blur-md rounded-3xl shadow-[0_0_36px_rgba(239,68,68,0.14)] p-6 md:p-10 grid lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] gap-x-10 gap-y-8">
-          <div className="lg:col-start-1 lg:row-start-1 lg:self-center">
+          <div className="lg:col-start-1 lg:row-start-1">
             <p className="text-cyan-500 text-xs tracking-[0.35em] uppercase mb-4">
               {'// Open_Call_2027'}
             </p>
@@ -151,21 +151,22 @@ export default function OpenCall2027Page() {
 
           </div>
 
-          <div className="lg:col-span-2 lg:row-start-2 flex flex-col md:flex-row md:items-center gap-5 md:gap-8">
-            <div className="self-start">
-              <SubmitButton />
-            </div>
-            <DeadlineCountdown />
+          <div className="lg:col-start-1 lg:row-start-2 self-start">
+            <SubmitButton />
           </div>
 
-          <figure className="lg:col-start-2 lg:row-start-1 lg:self-center rounded-2xl overflow-hidden border border-cyan-500/20 shadow-[0_0_30px_rgba(0,174,255,0.12)]">
-            <Image
-              src={advertImage}
-              alt="DELETE TV Open Call 2027 poster: Experimental Filmmakers Wanted. Films up to 10 minutes. A figure with a patchwork television for a head and a glowing blue eye on its screen."
-              sizes="(min-width: 1024px) 500px, calc(100vw - 6rem)"
-              className="block w-full h-auto"
-            />
-          </figure>
+          {/* Countdown comes first in the source so it follows the button on mobile; on desktop the column is reversed so the poster sits above it. */}
+          <div className="lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:self-center flex flex-col lg:flex-col-reverse gap-5 lg:gap-6">
+            <DeadlineCountdown />
+            <figure className="rounded-2xl overflow-hidden border border-cyan-500/20 shadow-[0_0_30px_rgba(0,174,255,0.12)]">
+              <Image
+                src={advertImage}
+                alt="DELETE TV Open Call 2027 poster: Experimental Filmmakers Wanted. Films up to 10 minutes. A figure with a patchwork television for a head and a glowing blue eye on its screen."
+                sizes="(min-width: 1024px) 500px, calc(100vw - 6rem)"
+                className="block w-full h-auto"
+              />
+            </figure>
+          </div>
         </section>
 
         {/* Quick facts */}
