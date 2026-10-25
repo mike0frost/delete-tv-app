@@ -134,7 +134,7 @@ export default async function Page() {
           className="mt-10 rounded-3xl border border-cyan-300/40 bg-cyan-400/5 shadow-[0_0_40px_rgba(34,211,238,0.15)] p-6 md:p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6"
         >
           <div className="space-y-2">
-            <p className="text-cyan-500 text-xs tracking-[0.35em] uppercase">// Open_Call_2027</p>
+            <p className="text-cyan-500 text-xs tracking-[0.35em] uppercase">{'// Open_Call_2027'}</p>
             <h2 id="open-call-heading" className="text-2xl md:text-4xl text-cyan-100 uppercase tracking-wide">
               Experimental filmmakers wanted.
             </h2>

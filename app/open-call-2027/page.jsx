@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import DeadlineCountdown from './DeadlineCountdown';
 
 const FILMFREEWAY_URL = 'https://filmfreeway.com/DeleteTV';
 const CONTACT_EMAIL = 'office@delete-tv.com';
@@ -114,9 +115,9 @@ export default function OpenCall2027Page() {
         </Link>
 
         {/* Hero */}
-        <section className="border border-cyan-500/30 bg-black/30 backdrop-blur-md rounded-3xl shadow-[0_0_40px_rgba(0,180,255,0.18)] p-6 md:p-10">
+        <section className="border border-red-500/50 bg-black/30 backdrop-blur-md rounded-3xl shadow-[0_0_36px_rgba(239,68,68,0.14)] p-6 md:p-10">
           <p className="text-cyan-500 text-xs tracking-[0.35em] uppercase mb-4">
-            // Open_Call_2027
+            {'// Open_Call_2027'}
           </p>
           <h1 className="font-bold uppercase leading-tight text-balance drop-shadow-[0_0_24px_rgba(34,211,238,0.45)]">
             <span className="block text-cyan-400 text-sm md:text-base tracking-[0.3em] mb-3">
@@ -138,11 +139,11 @@ export default function OpenCall2027Page() {
             </p>
           </div>
 
-          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
-            <SubmitButton />
-            <p className="text-cyan-300/80 text-sm tracking-wide">
-              Regular deadline: 31 December 2026
-            </p>
+          <div className="mt-8 flex flex-col md:flex-row md:items-center gap-5 md:gap-8">
+            <div className="self-start">
+              <SubmitButton />
+            </div>
+            <DeadlineCountdown />
           </div>
         </section>
 
