@@ -1,10 +1,13 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import DeadlineCountdown from './DeadlineCountdown';
+import advertImage from './open-call-advert.webp';
 
 const FILMFREEWAY_URL = 'https://filmfreeway.com/DeleteTV';
 const CONTACT_EMAIL = 'office@delete-tv.com';
 
 export const metadata = {
+  metadataBase: new URL('https://delete-tv.com'),
   title: 'DELETE TV 2027 — Open Call for Experimental Film & Video Art',
   description:
     'Submit video art, experimental shorts and AI films up to 10 min. Deadline 31 Dec 2026. Selected works are broadcast in Austria and streamed worldwide.',
@@ -17,6 +20,12 @@ export const metadata = {
       'Submit video art, experimental shorts and AI films up to 10 min. Deadline 31 Dec 2026. Selected works are broadcast in Austria and streamed worldwide.',
     url: 'https://delete-tv.com/open-call-2027',
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'DELETE TV 2027 — Open Call for Experimental Film & Video Art',
+    description:
+      'Submit video art, experimental shorts and AI films up to 10 min. Deadline 31 Dec 2026. Selected works are broadcast in Austria and streamed worldwide.',
   },
 };
 
@@ -115,36 +124,48 @@ export default function OpenCall2027Page() {
         </Link>
 
         {/* Hero */}
-        <section className="border border-red-500/50 bg-black/30 backdrop-blur-md rounded-3xl shadow-[0_0_36px_rgba(239,68,68,0.14)] p-6 md:p-10">
-          <p className="text-cyan-500 text-xs tracking-[0.35em] uppercase mb-4">
-            {'// Open_Call_2027'}
-          </p>
-          <h1 className="font-bold uppercase leading-tight text-balance drop-shadow-[0_0_24px_rgba(34,211,238,0.45)]">
-            <span className="block text-cyan-400 text-sm md:text-base tracking-[0.3em] mb-3">
-              DELETE TV 2027 —
-            </span>
-            <span className="block text-cyan-100 text-3xl md:text-5xl xl:text-6xl">
-              Open Call for Experimental Film &amp; Video Art
-            </span>
-          </h1>
+        <section className="border border-red-500/50 bg-black/30 backdrop-blur-md rounded-3xl shadow-[0_0_36px_rgba(239,68,68,0.14)] p-6 md:p-10 grid lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] gap-x-10 gap-y-8">
+          <div className="lg:col-start-1 lg:row-start-1 lg:self-center">
+            <p className="text-cyan-500 text-xs tracking-[0.35em] uppercase mb-4">
+              {'// Open_Call_2027'}
+            </p>
+            <h1 className="font-bold uppercase leading-tight text-balance drop-shadow-[0_0_24px_rgba(34,211,238,0.45)]">
+              <span className="block text-cyan-400 text-sm md:text-base tracking-[0.3em] mb-3">
+                DELETE TV 2027 —
+              </span>
+              <span className="block text-cyan-100 text-3xl md:text-5xl lg:text-4xl xl:text-5xl">
+                Open Call for Experimental Film &amp; Video Art
+              </span>
+            </h1>
 
-          <div className={`mt-6 max-w-3xl space-y-4 ${bodyClass}`}>
-            <p>
-              &gt; DELETE TV is an international platform for video art, experimental short films
-              and AI cinema, running since 2015. We are looking for work that bends perception.
-            </p>
-            <p>
-              &gt; Every selected work is broadcast in Austria and livestreamed across the world.
-              The overall winner receives the DELETE TV Award.
-            </p>
+            <div className={`mt-6 space-y-4 ${bodyClass}`}>
+              <p>
+                &gt; DELETE TV is an international platform for video art, experimental short films
+                and AI cinema, running since 2015. We are looking for work that bends perception.
+              </p>
+              <p>
+                &gt; Every selected work is broadcast in Austria and livestreamed across the world.
+                The overall winner receives the DELETE TV Award.
+              </p>
+            </div>
+
           </div>
 
-          <div className="mt-8 flex flex-col md:flex-row md:items-center gap-5 md:gap-8">
+          <div className="lg:col-span-2 lg:row-start-2 flex flex-col md:flex-row md:items-center gap-5 md:gap-8">
             <div className="self-start">
               <SubmitButton />
             </div>
             <DeadlineCountdown />
           </div>
+
+          <figure className="lg:col-start-2 lg:row-start-1 lg:self-center rounded-2xl overflow-hidden border border-cyan-500/20 shadow-[0_0_30px_rgba(0,174,255,0.12)]">
+            <Image
+              src={advertImage}
+              alt="DELETE TV Open Call 2027 poster: Experimental Filmmakers Wanted. Films up to 10 minutes. A figure with a patchwork television for a head and a glowing blue eye on its screen."
+              sizes="(min-width: 1024px) 500px, calc(100vw - 6rem)"
+              className="block w-full h-auto"
+            />
+          </figure>
         </section>
 
         {/* Quick facts */}
