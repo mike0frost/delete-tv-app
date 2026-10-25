@@ -17,6 +17,7 @@ const stats = [
 const navLinks = [
   { label: 'NEWS', href: '#news' },
   { label: 'BROADCAST', href: '#broadcast' },
+  { label: 'OPEN CALL 2027', href: '/open-call-2027' },
   { label: 'SUBMIT', href: 'https://filmfreeway.com/DeleteTV' },
   { label: 'NEWSLETTER', href: '#newsletter' },
   { label: 'CONTACT', href: '#contact' },
@@ -125,6 +126,28 @@ export default async function Page() {
               </div>
             </aside>
           </div>
+        </section>
+
+        {/* Open Call 2027 invitation */}
+        <section
+          aria-labelledby="open-call-heading"
+          className="mt-10 rounded-3xl border border-cyan-300/40 bg-cyan-400/5 shadow-[0_0_40px_rgba(34,211,238,0.15)] p-6 md:p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6"
+        >
+          <div className="space-y-2">
+            <p className="text-cyan-500 text-xs tracking-[0.35em] uppercase">// Open_Call_2027</p>
+            <h2 id="open-call-heading" className="text-2xl md:text-4xl text-cyan-100 uppercase tracking-wide">
+              Experimental filmmakers wanted.
+            </h2>
+            <p className="text-cyan-100/80 leading-relaxed">
+              &gt; Video art, experimental shorts and AI films up to 10 minutes. Regular deadline: 31 December 2026.
+            </p>
+          </div>
+          <Link
+            href="/open-call-2027"
+            className="shrink-0 self-start md:self-auto px-5 sm:px-6 py-3 rounded-2xl border border-cyan-300 bg-cyan-400/10 text-cyan-100 text-center uppercase tracking-[0.12em] sm:tracking-[0.25em] text-sm shadow-[0_0_30px_rgba(34,211,238,0.3)] hover:bg-cyan-300/15 transition"
+          >
+            &gt; Open Call Details &lt;
+          </Link>
         </section>
 
         {/* About / Status */}

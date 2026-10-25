@@ -19,6 +19,12 @@ export default async function sitemap() {
       changeFrequency: 'monthly',
       priority: 1,
     },
+    {
+      url: `${base}/open-call-2027`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
     ...seasonUrls,
   ];
 }
