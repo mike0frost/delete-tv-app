@@ -131,7 +131,7 @@ export default async function Page() {
         {/* Open Call 2027 invitation */}
         <section
           aria-labelledby="open-call-heading"
-          className="mt-10 rounded-3xl border border-cyan-300/40 bg-cyan-400/5 shadow-[0_0_40px_rgba(34,211,238,0.15)] p-6 md:p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6"
+          className="mt-10 rounded-3xl border border-red-500/50 bg-black/30 shadow-[0_0_36px_rgba(239,68,68,0.14)] p-6 md:p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6"
         >
           <div className="space-y-2">
             <p className="text-cyan-500 text-xs tracking-[0.35em] uppercase">{'// Open_Call_2027'}</p>
@@ -162,7 +162,7 @@ export default async function Page() {
             </div>
           </div>
 
-          <div className="rounded-3xl border border-red-500/30 bg-black/25 shadow-[0_0_30px_rgba(239,68,68,0.07)] p-6 md:p-8">
+          <div className="rounded-3xl border border-cyan-500/25 bg-black/25 backdrop-blur-sm shadow-[0_0_40px_rgba(0,174,255,0.12)] p-6 md:p-8">
             <p className="text-red-400/70 text-xs tracking-[0.35em] uppercase mb-4">Submission Status</p>
             <div className="space-y-4 text-cyan-100/80 leading-relaxed">
               <p>&gt; <span className="font-semibold">OPEN CALL — Season 13 submissions are now open.</span></p>
